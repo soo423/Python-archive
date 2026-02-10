@@ -1,0 +1,1340 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/soo423/Python-archive/blob/main/03_%E1%84%89%E1%85%A5%E1%86%AB%E1%84%90%E1%85%A2%E1%86%A8%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9.ipynb_2.10%EC%88%98%EC%A0%95\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 📘 파이썬 기초: 03. 선택 구조"
+      ],
+      "metadata": {
+        "id": "YcsvzcTS3Awy"
+      },
+      "id": "YcsvzcTS3Awy"
+    },
+    {
+      "cell_type": "markdown",
+      "id": "a9ec8331",
+      "metadata": {
+        "id": "a9ec8331"
+      },
+      "source": [
+        "## 1. 비교 연산자 (Comparison Operators)\n",
+        "* **개념**: 두 값의 크기를 비교하여 참(`True`) 또는 거짓(`False`)을 결과로 반환하는 연산자입니다.\n",
+        "* **주요 연산자**:\n",
+        "    * `==` : 같다\n",
+        "    * `!=` : 다르다\n",
+        "    * `>` / `<` : 크다 / 작다\n",
+        "    * `>=` / `<=` : 크거나 같다 / 작거나 같다"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "f087f7b7",
+      "metadata": {
+        "id": "f087f7b7",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "428594a0-fbff-4f23-f150-4c3dc88f3556"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "10 == 20: False\n",
+            "10!=20: True\n",
+            "10 > 20: False\n",
+            "20 < 30: True\n",
+            "10>=20: False\n",
+            "20<=30: True\n"
+          ]
+        }
+      ],
+      "source": [
+        "a, b, c = 10, 20, 30\n",
+        "print(f'{a} == {b}: {a==b}')\n",
+        "print(f'{a}!={b}: {a!=b}')\n",
+        "print(f'{a} > {b}: {a>b}')\n",
+        "print(f'{b} < {c}: {b<c}')\n",
+        "print(f'{a}>={b}: {a>=b}')\n",
+        "print(f'{b}<={c}: {b<=c}')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Random 라이브러리\n",
+        "* import random\n",
+        "* random.함수이름()\n",
+        "* randint(시작값, 끝값) : 정수 중 하나를 무작위로 반환"
+      ],
+      "metadata": {
+        "id": "c5rhOxsFRwPy"
+      },
+      "id": "c5rhOxsFRwPy"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "a = random.randint(1,5)\n",
+        "answer = int(input('선택한 수를 맞혀보세요(1-5):'))\n",
+        "print(f'결과는 : {a == answer}, 선택한 수는 : {a}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BynbZl8rSRdV",
+        "outputId": "d72c2a1e-574a-4dbb-87a4-932717a3d6ec"
+      },
+      "id": "BynbZl8rSRdV",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "선택한 수를 맞혀보세요(1-5):3\n",
+            "결과는 : False, 선택한 수는 : 1\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#무작위로 정수 두개(a,b) 생성한 다음에 a나누기b의 몫과 나머지를 출력\n",
+        "#a, b\n",
+        "#my_quoitent 몫\n",
+        "#my_remainder 나머지\n",
+        "#실제값과 예측값을 비교해서 출력함 : true, false\n",
+        "\n",
+        "import random\n",
+        "a = random.randint(10, 50)\n",
+        "b = random.randint(2, 9)\n",
+        "\n",
+        "your_quoitent = a // b\n",
+        "your_remainder = a % b\n",
+        "\n",
+        "my_quoitent = int(input(f'{a}를 {b}로 나누면 몫은? '))\n",
+        "my_remainder = int(input(f'{a}를 {b}로 나누면 나머지는?'))\n",
+        "\n",
+        "print(f'A 입력 결과 : {my_quoitent} || B 입력 결과 : {my_remainder}')\n",
+        "print(f'나눈 결과 {your_quoitent } || 나머지 {your_remainder}')\n",
+        "print(f'나눈 결과 {your_quoitent == my_quoitent} || 나머지 {your_remainder == my_remainder }')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Y6N6QhPsTLms",
+        "outputId": "d977c11b-03af-459e-cb6d-71b82543e7eb"
+      },
+      "id": "Y6N6QhPsTLms",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "13를 2로 나누면 몫은? 6\n",
+            "13를 2로 나누면 나머지는?1\n",
+            "A 입력 결과 : 6 || B 입력 결과 : 1\n",
+            "나눈 결과 6 || 나머지 1\n",
+            "나눈 결과 True || 나머지 True\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "fa3dd71a",
+      "metadata": {
+        "id": "fa3dd71a"
+      },
+      "source": [
+        "## 2. 선택 구조 (Selection Structure)\n",
+        "* **개념**: 조건식의 결과에 따라 실행할 문장을 결정하는 구조입니다.\n",
+        "* **if 문**: 조건이 참일 때만 실행할 문장을 작성합니다.\n",
+        "* **if-else 문**: 조건이 참일 때와 거짓일 때 실행할 문장을 각각 나누어 작성합니다.\n",
+        "* **if-elif-else 문**: 여러 개의 조건을 순차적으로 체크해야 할 때 사용합니다.\n",
+        "* **주의 사항**:\n",
+        "    * 조건문 끝에는 반드시 **콜론(:)**을 붙여야 합니다.\n",
+        "    * 실행할 문장은 반드시 **들여쓰기(Indentation)**를 해야 합니다."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### if문\n",
+        "```\n",
+        "if 조건식:\n",
+        "  실행문\n",
+        "```\n",
+        "### if-else문\n",
+        "```\n",
+        "# 코드로 형식 지정됨\n",
+        "if 조건식:\n",
+        "  실행문1\n",
+        "else:\n",
+        "  실행문2\n",
+        "```\n",
+        "### if-elif-else문\n",
+        "```\n",
+        "if 조건식 :\n",
+        "  실행문1\n",
+        "elif 조건식 2 :\n",
+        "  실행문2\n",
+        "else :\n",
+        "  실행문3\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "loVaa6-nMvkG"
+      },
+      "id": "loVaa6-nMvkG"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "c9dbea06",
+      "metadata": {
+        "id": "c9dbea06"
+      },
+      "outputs": [],
+      "source": [
+        "import random\n",
+        "a = random.randint(1,100)\n",
+        "b = random.randint(1,100)\n",
+        "\n",
+        "if a < b:\n",
+        "  a,b = b,a\n",
+        "  print(a,b)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "height1 = int(input('1번 키 입력'))\n",
+        "height2 = int(input('2번 키 입력'))\n",
+        "\n",
+        "if(height1 > height2):\n",
+        "  print(f'키 차이 결과 : {height1 - height2}')\n",
+        "else:\n",
+        "  print(f'키 차이 결과 : {height2 - height1}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fOK3jDSWJ2DJ",
+        "outputId": "94a28d43-647f-42ef-c9c9-596efeedac7a"
+      },
+      "id": "fOK3jDSWJ2DJ",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1번 키 입력300\n",
+            "2번 키 입력200\n",
+            "키 차이 결과 : 100\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "fee = 5000\n",
+        "age = int(input('귀하의 나이는 '))\n",
+        "if age < 8:\n",
+        "  print(f'입장료는 {fee * 0.7}')\n",
+        "elif age < 60:\n",
+        "  print(f'입장료는 {fee}')\n",
+        "else:\n",
+        "    print(f'입장료는 {fee * 0.8}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zVgOvROAMFMY",
+        "outputId": "d7e124ef-c272-4434-d144-035b054544e9"
+      },
+      "id": "zVgOvROAMFMY",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "귀하의 나이는 22\n",
+            "입장료는 5000\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "입력받은 가격이 10000원 이상일 때 판매가에서 5% 할인\n",
+        "아닌 경우 할인하지 않음\n",
+        "price문 활용"
+      ],
+      "metadata": {
+        "id": "0hGFq7-DObYH"
+      },
+      "id": "0hGFq7-DObYH"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "won = 10000\n",
+        "price = int(input('가격 입력'))\n",
+        "if price >= won:\n",
+        "  print(f'할인 가격 {price * 0.95}원 지불')\n",
+        "else :\n",
+        "  print(f'가격 {price}원 지불')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mIAM2ND6Ojt-",
+        "outputId": "64834d42-835b-45c4-f343-6b2f26dff069"
+      },
+      "id": "mIAM2ND6Ojt-",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "가격 입력15000\n",
+            "할인 가격 14250.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###짝수와 홀수 판별하기\n",
+        "\n",
+        "\n",
+        "\n",
+        "*   사용자로부터 입력받은 정수가 짝수 홀수인지 판별하여 짝수/홀수 출력하기\n",
+        "*   num 변수를 활용\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "ZElU1eSGTcGD"
+      },
+      "id": "ZElU1eSGTcGD"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num = int(input('숫자 입력'))\n",
+        "if num % 2 == 0:\n",
+        "  print(f'{num}은 짝수')\n",
+        "else:\n",
+        "  print(f'{num}은 홀수')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bmUrUyUITt4D",
+        "outputId": "50fab8ca-ff09-41da-8dc4-4ad905444c6a"
+      },
+      "id": "bmUrUyUITt4D",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "숫자 입력1\n",
+            "1은 홀수\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 주사위 굴리기\n",
+        "\n",
+        "*   랜덤으로 1~6 사이의 숫자를 구해서\n",
+        "*   숫자 2개를 준비, 각 숫자를 출력함\n",
+        "*   첫번째 숫자가 크면 1번 주사위가 승리\n",
+        "*   두번째 숫자가 크면 2번 주사위가 승리\n",
+        "*   아닌 경우 무승부 출력\n",
+        "*   변수 : dice1, dice2 사용\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "bwVF-LSPU5N7"
+      },
+      "id": "bwVF-LSPU5N7"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "dice1 = random.randint(1,6)\n",
+        "dice2 = random.randint(1,6)\n",
+        "\n",
+        "if dice1 > dice2:\n",
+        "  print(f'1번 주사위 승리 : {dice1}')\n",
+        "elif dice1 < dice2:\n",
+        "  print(f'2번 주사위 승리 : {dice2}')\n",
+        "else :\n",
+        "  print('무승부')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-uSQbCRxU4cf",
+        "outputId": "fe05097d-ed24-444f-cab5-34044059001f"
+      },
+      "id": "-uSQbCRxU4cf",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2번 주사위 승리 : 5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 스포츠스태킹 개인 기록 정하기\n",
+        "\n",
+        "*   입력받은 3개의 정수 중\n",
+        "*   가장 작은 수를 찾아서 개인기록으로 정하는 것\n",
+        "*   변수 try1, try2, try3\n",
+        "*   세개의 값을 서로 비교\n",
+        "*   선수 기록을 출력함\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "rkDjLbiiXLbB"
+      },
+      "id": "rkDjLbiiXLbB"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try1 = int(input('1번 선수 기록 입력'))\n",
+        "try2 = int(input('2번 선수 기록 입력'))\n",
+        "try3 = int(input('3번 선수 기록 입력'))\n",
+        "\n",
+        "if try1 < try2 & try3 :\n",
+        "  print(f'1번 선수 기록 : {try1}')\n",
+        "elif try1 & try2 < try3 :\n",
+        "  print(f'2번 선수 기록 : {try2}')\n",
+        "else :\n",
+        "  print(f'3번 선수 기록 : {try3}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "inh4IB7fX_Uo",
+        "outputId": "d8f96f4c-f599-41bc-c0df-7560c8d9bbc6"
+      },
+      "id": "inh4IB7fX_Uo",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1번 선수 기록 입력10\n",
+            "2번 선수 기록 입력20\n",
+            "3번 선수 기록 입력30\n",
+            "1번 선수 기록 : 10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "be0dab9c",
+      "metadata": {
+        "id": "be0dab9c"
+      },
+      "source": [
+        "## 3. 논리 연산자 (Logical Operators)\n",
+        "* **개념**: 여러 개의 조건식을 조합하여 하나의 결과를 얻을 때 사용합니다.\n",
+        "* **종류**:\n",
+        "    * `and` : 두 조건이 모두 참일 때만 참\n",
+        "    * `or` : 두 조건 중 하나만 참이어도 참\n",
+        "    * `not` : 참을 거짓으로, 거짓을 참으로 반전"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "ec9b2a96",
+      "metadata": {
+        "id": "ec9b2a96",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a932703c-24a9-4924-e99e-1a0699ead4b1"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True\n",
+            "False\n",
+            "False\n"
+          ]
+        }
+      ],
+      "source": [
+        "a = 25\n",
+        "print(a >=8 and a>=25)\n",
+        "\n",
+        "a=70\n",
+        "print(a<8 or a>=80)\n",
+        "\n",
+        "a = 20\n",
+        "print(not a==20)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 쇼핑몰 회원별 결제 금액 계산하기\n",
+        "\n",
+        "*   회원 등급을 입력받음(우수 또는 일반)\n",
+        "*   구매액을 입력받음\n",
+        "*   기본 배송비는 2000원\n",
+        "*   우수고객이거나 2만원 이상 구매자는 배송비가 무료\n",
+        "*   결제 금액을 출력함\n",
+        "*   변수 delivery_fee, level, price를 활용\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "MHQsg1l5f_h6"
+      },
+      "id": "MHQsg1l5f_h6"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "pr = \"우수\"\n",
+        "nr = \"일반\"\n",
+        "delivery_fee = 2000\n",
+        "\n",
+        "level = input('회원 등급 입력')\n",
+        "price = int(input('구매 금액 입력'))\n",
+        "\n",
+        "if level == pr or price >= 20000:\n",
+        "  print(f'구매 금액 {price} + 배송비는 무료, 총 {price}원')\n",
+        "else :\n",
+        "  print(f'구매 금액 {price} + 배송비{delivery_fee}를 포함해 총 {price+delivery_fee}원')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TfyyhnmNgq3l",
+        "outputId": "63ee4917-bdb4-4213-ac80-0fc349fc37c7"
+      },
+      "id": "TfyyhnmNgq3l",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "회원 등급 입력일반\n",
+            "구매 금액 입력2000\n",
+            "구매 금액 2000 + 배송비2000를 포함해 총 4000원\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 점수를 입력받아 3의 배수이고 5의 배수인지 출력하기"
+      ],
+      "metadata": {
+        "id": "CMJTkpNgjUbV"
+      },
+      "id": "CMJTkpNgjUbV"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "score = int(input('점수 입력'))\n",
+        "\n",
+        "if score % 3 == 0 or score % 5 == 0 :\n",
+        "  print(f'{score}은 3의 배수임')\n",
+        "else :\n",
+        "  print(f'{score}은 5의 배수임')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "F9Cg_14_jic-",
+        "outputId": "fcf60a61-f20c-4ec4-c6d1-7ebced750e59"
+      },
+      "id": "F9Cg_14_jic-",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "점수 입력50\n",
+            "50은 3의 배수임\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 연도를 입력받아 윤년인지 평년인지 판별\n",
+        "### 윤년(2월 29일)은 4년에 한번, 400년에 한번 윤년, 그러나 100년째 해는 윤년이 아님"
+      ],
+      "metadata": {
+        "id": "k5P8Ci3bmiAV"
+      },
+      "id": "k5P8Ci3bmiAV"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "year = int(input('연도 입력'))\n",
+        "\n",
+        "if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:\n",
+        "  print(f'{year}은 윤년')\n",
+        "else:\n",
+        "  print(f'{year}은 평년')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 365
+        },
+        "id": "jwjTqTCTmtYd",
+        "outputId": "276e1a72-cc8c-49f9-ec02-080178f6b405"
+      },
+      "id": "jwjTqTCTmtYd",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "KeyboardInterrupt",
+          "evalue": "Interrupted by user",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-2157750006.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0myear\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'연도 입력'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0myear\u001b[0m \u001b[0;34m%\u001b[0m \u001b[0;36m4\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;36m0\u001b[0m \u001b[0;32mand\u001b[0m \u001b[0myear\u001b[0m \u001b[0;34m%\u001b[0m \u001b[0;36m100\u001b[0m \u001b[0;34m!=\u001b[0m \u001b[0;36m0\u001b[0m \u001b[0;32mor\u001b[0m \u001b[0myear\u001b[0m \u001b[0;34m%\u001b[0m \u001b[0;36m400\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;36m0\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m   \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34mf'{year}은 윤년'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36mraw_input\u001b[0;34m(self, prompt)\u001b[0m\n\u001b[1;32m   1175\u001b[0m                 \u001b[0;34m\"raw_input was called, but this frontend does not support input requests.\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1176\u001b[0m             )\n\u001b[0;32m-> 1177\u001b[0;31m         return self._input_request(\n\u001b[0m\u001b[1;32m   1178\u001b[0m             \u001b[0mstr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mprompt\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1179\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_parent_ident\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"shell\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.12/dist-packages/ipykernel/kernelbase.py\u001b[0m in \u001b[0;36m_input_request\u001b[0;34m(self, prompt, ident, parent, password)\u001b[0m\n\u001b[1;32m   1217\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1218\u001b[0m                 \u001b[0;31m# re-raise KeyboardInterrupt, to truncate traceback\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1219\u001b[0;31m                 \u001b[0;32mraise\u001b[0m \u001b[0mKeyboardInterrupt\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Interrupted by user\"\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0;32mNone\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1220\u001b[0m             \u001b[0;32mexcept\u001b[0m \u001b[0mException\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1221\u001b[0m                 \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlog\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mwarning\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"Invalid Message:\"\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexc_info\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m: Interrupted by user"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#가위바위보 게임\n",
+        "import random\n",
+        "\n",
+        "user = input('가위, 바위, 보 :')\n",
+        "com_rand = random.randint(1,3)\n",
+        "\n",
+        "if com_rand == 1:\n",
+        "  computer = '가위'\n",
+        "elif com_rand == 2:\n",
+        "  computer = '바위'\n",
+        "else:\n",
+        "  computer = '보'\n",
+        "\n",
+        "print(f'나 : {user} | 컴퓨터 : {computer}')\n",
+        "\n",
+        "#승부 겨루기\n",
+        "if user == computer:\n",
+        "  print('무승부')\n",
+        "elif user == '바위' and computer == '가위':\n",
+        "  print(\"승리했습니다\")\n",
+        "elif user == '가위' and computer == '보':\n",
+        "  print(\"승리했습니다\")\n",
+        "elif user == '보' and computer == '바위':\n",
+        "  print(\"승리했습니다\")\n",
+        "else :\n",
+        "  print(\"패배했습니다\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jmmJiLov2xZG",
+        "outputId": "d2c24de5-ee29-484a-d392-46c1f7d51059"
+      },
+      "id": "jmmJiLov2xZG",
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "가위, 바위, 보 :바위\n",
+            "나 : 바위 | 컴퓨터 : 보\n",
+            "패배했습니다\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "4b8aa1bd",
+      "metadata": {
+        "id": "4b8aa1bd"
+      },
+      "source": [
+        "## 4. 함수 (Function)\n",
+        "* **개념**: 특정 작업을 수행하는 명령어들의 묶음입니다.\n",
+        "* **라이브러리 활용**: `import` 키워드를 사용하여 외부 도구(라이브러리)를 불러올 수 있습니다.\n",
+        "* **랜덤 함수**: `random.randint(start, end)`는 지정한 범위 내의 정수 중 하나를 무작위로 반환합니다."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "id": "cd864a9e",
+      "metadata": {
+        "id": "cd864a9e"
+      },
+      "outputs": [],
+      "source": [
+        "import random\n",
+        "\n",
+        "def rand_add():\n",
+        "  a = random.randint(1,100)\n",
+        "  b = random.randint(1,100)\n",
+        "  answer = int(input(f'{a}+{b}='))\n",
+        "\n",
+        "  if answer == a+b:\n",
+        "    print('정답입니다.')\n",
+        "  else:\n",
+        "    print('틀렸습니다')\n",
+        "\n",
+        "  rand_add()\n",
+        "  rand_add()"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###함수 정의\n",
+        "\n",
+        "```\n",
+        "def 함수이름(매개변수 1, 매개변수 2)\n",
+        "  실행문\n",
+        "  return 반환값\n",
+        "```\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "TYFnRtKf-rsU"
+      },
+      "id": "TYFnRtKf-rsU"
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "0CindnDM_gt7"
+      },
+      "id": "0CindnDM_gt7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 함수 호출\n",
+        "\n",
+        "함수이름(인자값1, 인자값2)"
+      ],
+      "metadata": {
+        "id": "m2sQN5yK_fpX"
+      },
+      "id": "m2sQN5yK_fpX"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def func():\n",
+        "  print('함수입니다.')\n",
+        "\n",
+        "  print('함수 호출 전 입니다.')\n",
+        "  func()\n",
+        "  print('함수 호출 후 입니다.')"
+      ],
+      "metadata": {
+        "id": "FmoFcqcZ_l78"
+      },
+      "id": "FmoFcqcZ_l78",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def add(x, y):\n",
+        "  print(x+y)\n",
+        "\n",
+        "  a = int(input('정수: '))\n",
+        "  a = int(input('정수: '))\n",
+        "\n",
+        "  add(a,b)"
+      ],
+      "metadata": {
+        "id": "tA2eyTXaAFHC"
+      },
+      "id": "tA2eyTXaAFHC",
+      "execution_count": 8,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "def bigsmall(x,y):\n",
+        "  if x > y:\n",
+        "    return x, y\n",
+        "  else:\n",
+        "    return y, x\n",
+        "\n",
+        "a = random.randint(1, 100)\n",
+        "b = random.randint(1, 100)\n",
+        "print(f'a: {a} b: {b}')\n",
+        "a, b = bigsmall(a,b)\n",
+        "print(a, b)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "W7S4CsnYBFZG",
+        "outputId": "52d95eac-3d9e-4e6f-a7c8-7a9f11c78352"
+      },
+      "id": "W7S4CsnYBFZG",
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "a: 78 b: 57\n",
+            "78 57\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 사칙연산 함수 만들기\n",
+        "\n",
+        "*   함수 이름 add, sub, mul, div\n",
+        "*   a, b 두개의 정수 입력 받기\n",
+        "*   각 함수 호출해서 출력\n",
+        "*   a+b = 덧셈함수 호출\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "Ab9-YeUdE2vs"
+      },
+      "id": "Ab9-YeUdE2vs"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def add(a, b):\n",
+        "  return a + b\n",
+        "def sub(a, b):\n",
+        "  return a - b\n",
+        "def mul(a, b):\n",
+        "  return a * b\n",
+        "def div(a, b):\n",
+        "  return a / b\n",
+        "\n",
+        "a = int(input('정수 입력'))\n",
+        "b = int(input('정수 입력'))\n",
+        "\n",
+        "print(f'{add}')\n",
+        "print(f'{sub}')\n",
+        "print(f'{mul}')\n",
+        "print(f'{div}')\n",
+        "\n",
+        "print(add(a,b))\n",
+        "print(sub(a,b))\n",
+        "print(mul(a,b))\n",
+        "print(div(a,b))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GK-R3DGqFPEc",
+        "outputId": "163ac62a-92b7-4cf0-d39c-d8e82782852c"
+      },
+      "id": "GK-R3DGqFPEc",
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "정수 입력20\n",
+            "정수 입력100\n",
+            "<function add at 0x7c582b804cc0>\n",
+            "<function sub at 0x7c582b804c20>\n",
+            "<function mul at 0x7c582b915e40>\n",
+            "<function div at 0x7c582b9142c0>\n",
+            "120\n",
+            "-80\n",
+            "2000\n",
+            "0.2\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#div 함수에서 몫, 나머지 반환\n",
+        "#변수 몫 quotient, 나머지 remainder\n",
+        "#몫 나머지 출력\n",
+        "\n",
+        "div(a,b)\n",
+        "quotient = a // b\n",
+        "remainder = a % b\n",
+        "\n",
+        "a = int(input('함수 입력'))\n",
+        "b = int(input('함수 입력'))\n",
+        "\n",
+        "print(f'몫 : {quotient} 나머지 : {remainder}')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uoMYeBv1JJmc",
+        "outputId": "f3b01f7b-9ae5-4e05-8df1-cf8042841377"
+      },
+      "id": "uoMYeBv1JJmc",
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "함수 입력20\n",
+            "함수 입력20\n",
+            "몫 : 1 나머지 : 0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from ast import Yield\n",
+        "\n",
+        "def div(x, y):\n",
+        "  return x//y, x%y\n",
+        "\n",
+        "a = int(input('함수 입력'))\n",
+        "b = int(input('함수 입력'))\n",
+        "\n",
+        "quotient, remainder = div(a,b)\n",
+        "\n",
+        "print(f'몫 : {quotient} 나머지 : {remainder}')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wcSQ3imSLhRy",
+        "outputId": "a2e32484-d944-4017-d41b-26efcc4db4cd"
+      },
+      "id": "wcSQ3imSLhRy",
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "함수 입력20\n",
+            "함수 입력20\n",
+            "몫 : 1 나머지 : 0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "cioRsyUgJJM7"
+      },
+      "id": "cioRsyUgJJM7"
+    },
+    {
+      "cell_type": "markdown",
+      "id": "0b592b06",
+      "metadata": {
+        "id": "0b592b06"
+      },
+      "source": [
+        "## 5. [실습 예제]\n",
+        "\n",
+        "### 🌡️ 온도 변환기 (온도 종류 통합형)\n",
+        "1. **입력**: 사용자로부터 온도 종류(섭씨 또는 화씨)와 온도 값을 입력받습니다.\n",
+        "2. **판단 및 계산**:\n",
+        "    * `if kind == '섭씨':` 이면 화씨 공식(`temp * 1.8 + 32`)으로 계산합니다.\n",
+        "    * `else:` 이면 화씨로 간주하고 섭씨 공식(`(temp - 32) / 1.8`)으로 계산합니다.\n",
+        "3. **출력**: 변환된 온도 결과를 화면에 표시합니다.\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 30,
+      "id": "d49bd552",
+      "metadata": {
+        "id": "d49bd552",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "00bff854-cd39-4bfc-ef77-a53189abe82d"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "섭씨 온도: 65\n"
+          ]
+        }
+      ],
+      "source": [
+        "celsius = int(input('섭씨 온도: '))\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#섭씨를 화씨로 전환\n",
+        "celsius * 9 / 5 + 32\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Zs7AjKsJM9rD",
+        "outputId": "094d1abd-76f4-4050-cfc3-4f557806fe7c"
+      },
+      "id": "Zs7AjKsJM9rD",
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "149.0"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 31
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "celsius = int(input('섭씨 온도: '))\n",
+        "farenheit = ceisius * 1.8 + 32\n",
+        "print(f'섭씨 {ceisius}도는 화씨 {farenheit}도 입니다.')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "z9Ol75wKNP8l",
+        "outputId": "660cf5f2-0fc3-4a87-a1d4-9a996d9c32b9"
+      },
+      "id": "z9Ol75wKNP8l",
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "섭씨 온도: 22\n",
+            "섭씨 22도는 화씨 71.6도 입니다.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#kind 변수에 화씨인지 섭씨인지를 입력받음\n",
+        "#temp 변수에는 온도를 입력받음\n",
+        "#만약에 섭씨일시 화씨로 전환, 화씨면 섭씨로 변환\n",
+        "\n",
+        "kind = input(\"확인할 온도 종류 입력(화씨, 섭씨) : \")\n",
+        "temp = int(input('현재 온도 입력: '))\n",
+        "\n",
+        "if kind == \"섭씨\":\n",
+        "  farenheit = temp * 9 / 5 + 32\n",
+        "  print(f'출력 결과 온도는 {farenheit} {kind}를 입력함')\n",
+        "elif kind == \"화씨\":\n",
+        "  celsius = (temp - 32) * 5 / 9\n",
+        "  print(f'출력 결과 온도는 {celsius} {kind}를 입력함')\n",
+        "else:\n",
+        "  print('입력값이 잘못됨')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aGdSYAboOn3a",
+        "outputId": "f092371e-b333-465d-dcbc-d2f81c173bf7"
+      },
+      "id": "aGdSYAboOn3a",
+      "execution_count": 54,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "확인할 온도 종류 입력(화씨, 섭씨) : 화씨\n",
+            "현재 온도 입력: 20\n",
+            "출력 결과 온도는 -6.666666666666667 화씨를 입력함\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### 📐 두 도형의 넓이 비교하기\n",
+        "1. **계산**: 사각형(가로×세로)과 삼각형(밑변×높이/2)의 정보를 각각 입력받아 넓이를 구합니다.\n",
+        "2. **비교**:\n",
+        "    * `if 넓이1 > 넓이2:` 첫 번째 도형이 더 넓다고 출력합니다.\n",
+        "    * `elif 넓이1 < 넓이2:` 두 번째 도형이 더 넓다고 출력합니다.\n",
+        "    * `else:` 두 도형의 넓이가 같다고 출력합니다."
+      ],
+      "metadata": {
+        "id": "P1Gmgy4b31bN"
+      },
+      "id": "P1Gmgy4b31bN"
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 사각형square, 삼각형(triangle, 원 circle 함수 3개)\n",
+        "# 사각형은 가로 width, 세로 height을 입력받아 사각형 넓이는 가로*세로 값 반환\n",
+        "# 삼각형은 ㅇ밑변base, 높이는 height 입력받아서 삼각형 넓이는 밑변*높이/2 값 반환\n",
+        "# 원은 반지름 radius를 입력받아서 math.pi*반지름*반지름 값 반환(math 라이브러리 사용)\n",
+        "# 도형의 종류를 입력받아 변수sharp_type1, sharp_type2\n",
+        "# 사각형이면 사각형 함수 호출, 삼각형이면 삼각형 함수 호출, 원이면 원 함수 호출함\n",
+        "# area 변수에 는 각 도형의 넓이 값이 입력됨\n",
+        "# area 변수에 입력된 값을 비교해 어떤 도형이 얼마만큼 더 넓은지 출력함, 도형 크기가 같으면 같다고 출력하기\n",
+        "import math\n",
+        "\n",
+        "def square(width, height): #사각형\n",
+        "  return width * height\n",
+        "def triangle(width, height): #삼각형\n",
+        "  return width * height / 2\n",
+        "def circle(radius): #원\n",
+        "  return math.pi * radius * radius\n",
+        "\n",
+        "#1번째 선택지\n",
+        "sharp_type1 = input(\"1번 도형을 입력하세요(사각형/삼각형/원)\")\n",
+        "\n",
+        "if sharp_type1 == \"삼각형\":\n",
+        "  width = int(input(\"밑변 입력\"))\n",
+        "  height = int(input(\"높이 입력\"))\n",
+        "  area1 = triangle(width, height)\n",
+        "elif sharp_type1 == \"사각형\":\n",
+        "  width = int(input(\"가로 입력\"))\n",
+        "  height = int(input(\"세로 입력\"))\n",
+        "  area1 = square(width, height)\n",
+        "elif sharp_type1 == \"원\":\n",
+        "  radius = int(input(\"반지름 입력\"))\n",
+        "  area1 = circle(radius)\n",
+        "else:\n",
+        "  print(\"잘못된 입력입니다.\")\n",
+        "  area1 = None\n",
+        "\n",
+        "#2번째 선택지\n",
+        "sharp_type2 = input(\"2번 도형을 입력하세요(사각형/삼각형/원)\")\n",
+        "\n",
+        "if sharp_type2 == \"삼각형\":\n",
+        "  width = int(input(\"밑변 입력\"))\n",
+        "  height = int(input(\"높이 입력\"))\n",
+        "  area2 = triangle(width, height)\n",
+        "elif sharp_type2 == \"사각형\":\n",
+        "  width = int(input(\"가로 입력\"))\n",
+        "  height = int(input(\"세로 입력\"))\n",
+        "  area2 = square(width, height)\n",
+        "elif sharp_type2 == \"원\":\n",
+        "  radius = int(input(\"반지름 입력\"))\n",
+        "  area2 = circle(radius)\n",
+        "else:\n",
+        "  print(\"잘못된 입력입니다.\")\n",
+        "  area2 = None\n",
+        "\n",
+        "# 비교 및 출력\n",
+        "if area1 is not None and area2 is not None:\n",
+        "  if area1 > area2:\n",
+        "    print(f'{sharp_type1}이(가) {sharp_type2}보다 {area1-area2} 만큼 더 넓음')\n",
+        "  elif area1 < area2:\n",
+        "    print(f'{sharp_type2}이(가) {sharp_type1}보다 {area2-area1} 만큼 더 넓음')\n",
+        "  else:\n",
+        "    print(\"두 도형의 길이가 똑같음\")"
+      ],
+      "metadata": {
+        "id": "nbZvzymu4Ia9",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "187a9497-1e2e-4c0d-d188-fecc8c23544d"
+      },
+      "id": "nbZvzymu4Ia9",
+      "execution_count": 68,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1번 도형을 입력하세요(사각형/삼각형/원)원\n",
+            "반지름 입력100\n",
+            "2번 도형을 입력하세요(사각형/삼각형/원)삼각형\n",
+            "밑변 입력70\n",
+            "높이 입력60\n",
+            "원이(가) 삼각형보다 29315.926535897932 만큼 더 넓음\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def square():\n",
+        "  width = int(input('사각형의 가로'))\n",
+        "  height = int(input('사각형의 세로'))\n",
+        "  return width * height\n",
+        "\n",
+        "def triangle():\n",
+        "  base = int(input('삼각형의 밑변'))\n",
+        "  height = int(input('삼각형의 높이'))\n",
+        "  return base * height / 2\n",
+        "\n",
+        "def circle():\n",
+        "  radius = int(input('원의 반지름'))\n",
+        "  return math.pi * radius * radius\n",
+        "\n",
+        "sharp_type1 = input('도형을 입력하세요(사각형/삼각형/원)')\n",
+        "sharp_type2 = input('도형을 입력하세요(사각형/삼각형/원)')\n",
+        "\n",
+        "if sharp_type1 == \"삼각형\"\n",
+        "  area1 = triangle()\n",
+        "elif sharp_type1 == \"사각형\"\n",
+        "  area1 = square()\n",
+        "else:\n",
+        "  area1 = circle()\n",
+        "\n",
+        "if sharp_type2 == \"삼각형\"\n",
+        "  area2 = triangle()\n",
+        "elif sharp_type2 == \"사각형\"\n",
+        "  area2 = square()\n",
+        "else:\n",
+        "  area2 = circle()\n",
+        "\n",
+        "if area1 > area2:\n",
+        "    print(f'{sharp_type1}이(가) {sharp_type2}보다 {area1-area2} 만큼 더 넓음')\n",
+        "elif area1 < area2:\n",
+        "    print(f'{sharp_type2}이(가) {sharp_type1}보다 {area2-area1} 만큼 더 넓음')\n",
+        "else:\n",
+        "    print(\"두 도형의 길이가 똑같음\")"
+      ],
+      "metadata": {
+        "id": "0nb4UN9BgU_h"
+      },
+      "id": "0nb4UN9BgU_h",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "WmvgkvKmbW8J"
+      },
+      "id": "WmvgkvKmbW8J",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "language_info": {
+      "name": "python"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
